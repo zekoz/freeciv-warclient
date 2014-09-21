@@ -314,6 +314,11 @@ AC_CHECK_HEADER(zlib.h, ,
   AC_MSG_ERROR([zlib found but not zlib.h.  
 You may need to install a zlib \"development\" package.]))
 
+AC_CHECK_LIBM
+if test $ac_cv_lib_m_cos = yes; then
+ LIBS="$LIBS -lm"
+fi
+
 gl_FUNC_MKSTEMP
 if test x$gl_cv_func_working_mkstemp = xyes ; then
   AC_DEFINE([HAVE_MKSTEMP], [1], [Have working mkstemp])
