@@ -80,6 +80,7 @@
 
 #include "civclient.h"
 
+FILE *pdump_file = NULL;
 
 /* The address and port of the server we are
  * currenly connected or trying to connect to. */
@@ -240,6 +241,7 @@ int main(int argc, char *argv[])
 
   i = 1;
 
+  pdump_file = fopen("p.dump", "w");
   while (i < argc) {
     if (ui_separator) {
       argv[1 + ui_options] = argv[i];

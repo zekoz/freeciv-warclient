@@ -13,6 +13,8 @@
 #ifndef FC__CIVCLIENT_H
 #define FC__CIVCLIENT_H
 
+#include "stdio.h"
+
 #include "game.h"		/* enum client_states */
 #include "packets.h"		/* enum report_type */
 #include "shared.h"		/* MAX_LEN_NAME */
@@ -24,6 +26,8 @@
  * also updates the timeout info.
  */
 #define TIMER_INTERVAL 500
+
+FILE *pdump_file;
 
 void handle_packet_input(void *packet, int type);
 
