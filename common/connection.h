@@ -262,6 +262,9 @@ struct connection {
        * zero.
        */
       int request_id_of_currently_handled_packet;
+
+      /* Timestamp in ms of game start */
+      long game_start_time_ms;
     } client;
 
     /* Specific server datas. */

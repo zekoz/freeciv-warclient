@@ -17,6 +17,7 @@
 
 #include <assert.h>
 #include <string.h>
+#include <time.h>
 
 #include "capability.h"
 #include "fcintl.h"
@@ -383,6 +384,9 @@ void handle_game_state(int value)
   set_client_state(value);
 
   if (get_client_state() == CLIENT_GAME_RUNNING_STATE) {
+    struct timeval tv;
+    gettimeofday(&tv, NULL);
+    &aconnection.client.game_start_time_ms = 1000 * tv.tv_sec + tv.tv_usec / 1000;
     refresh_overview_canvas();
     player_set_unit_focus_status(get_player_ptr());
 
